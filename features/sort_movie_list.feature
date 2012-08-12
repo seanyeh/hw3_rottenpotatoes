@@ -24,17 +24,24 @@ Background: movies have been added to database
 Scenario: sort movies alphabetically
   When I follow "Movie Title"
 
-  When I check the following ratings: PG, R, G, PG-13
+  When I check the following ratings: PG, R, G, PG-13, NC-17
 
   When I press "Refresh"
 
   Then I should see "Aladdin" before "Amelie"
+  Then I should see "Aladdin" before "The Help"
+  Then I should see "The Incredibles" before "The Terminator"
+  Then I should see "Chocolat" before "The Help"
+  Then I should see "Chocolat" before "The Incredibles"
+  Then I should see "Chicken Run" before "Chocolat"
 
 Scenario: sort movies in increasing order of release date
   When I follow "Release Date"
 
-  When I check the following ratings: PG, R, G, PG-13
+  When I check the following ratings: PG, R, G, PG-13, NC-17
 
   When I press "Refresh"
 
   Then I should see "1981" before "2001"
+  Then I should see "1968" before "2004"
+  Then I should see "2000" before "2001"
